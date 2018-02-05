@@ -21,9 +21,9 @@ int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp) {
     double result;
 
     if (pStep % 2 == 1) {
-        result = ceil(steps/2) - ceil(step/2);
+        result = ceil(steps / 2) - ceil(step / 2);
     } else {
-        result = (ceil(steps/2) * 2) + floor(steps/2) - (step/2);
+        result = (ceil(steps / 2) * 2) + floor(steps / 2) - (step / 2);
     }
     
     if (pComp == 0) {
@@ -48,9 +48,9 @@ int findSecondFreeSpace(int pSteps, int pShift) {
     } else if (pSteps == 0) {
         return pShift;
     } else {
-        double steps = (double)pSteps;
+        double steps = (double) pSteps;
         double result;
-        result = (2 * ceil(steps/2)) + (2 * floor(steps/2)) + 1;
+        result = (2 * ceil(steps / 2)) + (2 * floor(steps / 2)) + 1;
         return (int) result + pShift;
     }
 }
