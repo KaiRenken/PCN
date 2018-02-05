@@ -1,32 +1,54 @@
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
-#include "find_partitions.h"
+#include "findPartitions.h"
 #include "basics.h"
 #include "Matrix.h"
 
-int main(int argn, char *argv[]){
+int main(int argn, char *argv[]) {
 
-    if (argn != 4){ display_howTo(); return 0; } // Check number of input arguments
+	// Check number of input arguments
+    if (argn != 4) {
+		displayHowTo();
+		return 0;
+	}
 
-    int n = strtol(argv[1], NULL, 0); int a = strtol(argv[2], NULL, 0); int b = strtol(argv[3], NULL, 0); // Convert input arguments to integers
+	// Convert input arguments to integers
+    int pN = strtol(argv[1], NULL, 0);
+    int pA = strtol(argv[2], NULL, 0);
+    int pB = strtol(argv[3], NULL, 0);
 
-    if (n == 0 || a == 0 || b == 0){ display_howTo(); return 0; } // Check if conversion succeeded
+	// Check if conversion succeeded
+    if (pN == 0 || pA == 0 || pB == 0) {
+		displayHowTo();
+		return 0;
+	}
 
-    double _n = (double)n; double _a = (double)a; double _b = (double)b;
-    if ((_n * (_n + 1)) / 2 != ((_a + _b) / 2) * (_b - _a + 1)){ display_howTo(); return 0; } // Check if input arguments satisfy the assumptions of the statement
+	// Check if input arguments satisfy the assumptions of the statement
+    double n = (double) pN;
+    double a = (double) pA;
+    double b = (double) pB;
+    
+    if ((n * (n + 1)) / 2 != ((a + b) / 2) * (b - a + 1)) {
+		displayHowTo();
+		return 0;
+	}
 
-    Matrix* mat = new Matrix(b-a+1,n); // Create the output matrix
+	// Create the output matrix
+    Matrix* mat = new Matrix(b - a + 1, n);
 
-    find_partitions(n,a,b,mat,0,0); // Compute the partitioning
+	// Compute the partitioning
+    findPartitions(n, a, b, mat, 0, 0);
 
-    for (int i = 0; i < b-a+1; i++){
-        for (int j = 0; j < n; j++){
-           std::cout << mat->getEntry(i,j) << " "; // Display the output
+	// Display the output
+    for (int i = 0; i < b - a + 1; i++) {
+        for (int j = 0; j < n; j++) {
+           std::cout << mat->getEntry(i,j) << " ";
         }
         std::cout << std::endl;
     }
 
     delete mat;
+    
     return 0;
 }

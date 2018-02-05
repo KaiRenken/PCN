@@ -4,47 +4,59 @@
 
 typedef std::vector<int> line;
 
-int find_pairs_by_step(int step, int steps, bool comp);
-int find_first_free_space(int steps, int shift);
-int find_second_free_space(int steps, int shift);
-void display_howTo();
+int findPairsByStep(int pStep, int pSteps, bool pComp);
+int findFirstFreeSpace(int pSteps, int pShift);
+int findSecondFreeSpace(int pSteps, int pShift);
+void displayHowTo();
 
-int find_pairs_by_step(int step, int steps, int shift, bool comp){ // Find pairs of natural numbers with distance 'step' within the most narrow range
-    if (step > steps){ return 0; }
+// Find pairs of natural numbers with distance 'pStep' within the most narrow range
+int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp) {
+	
+    if (pStep > pSteps) {
+		return 0;
+	}
 
-    double _step = (double)step; double _steps = (double)steps; double result;
+    double step = (double) pStep;
+    double steps = (double) pSteps;
+    double result;
 
-    if (step % 2 == 1) {
-        result = ceil(_steps/2) - ceil(_step/2);
+    if (pStep % 2 == 1) {
+        result = ceil(steps/2) - ceil(step/2);
     } else {
-        result = (ceil(_steps/2) * 2) + floor(_steps/2) - (_step/2);
+        result = (ceil(steps/2) * 2) + floor(steps/2) - (step/2);
     }
-    if (comp == 0){
-        return (int)result + shift;
+    
+    if (pComp == 0) {
+        return (int) result + pShift;
     } else {
-        return (int)result + step + shift;
-    }
-}
-
-int find_first_free_space(int steps, int shift){ // Find first non-used number within the range of find_pairs_by_step
-    double _steps = (double)steps; double result;
-    result = (2 * ceil(_steps/2)) + floor(_steps/2);
-    return (int)result + shift;
-}
-
-int find_second_free_space(int steps, int shift){ // Find second non-used number within the range of find_pairs_by_step
-    if (steps == 1){
-        return 2 + shift;
-    } else if (steps == 0){
-        return shift;
-    } else {
-        double _steps = (double)steps; double result;
-        result = (2 * ceil(_steps/2)) + (2 * floor(_steps/2)) + 1;
-        return (int)result + shift;
+        return (int) result + pStep + pShift;
     }
 }
 
-void display_howTo(){ // Display how to use PCN
+// Find first non-used number within the range of findPairsByStep
+int findFirstFreeSpace(int pSteps, int pShift) {
+    double steps = (double) pSteps;
+    double result;
+    result = (2 * ceil(steps/2)) + floor(steps/2);
+    return (int) result + pShift;
+}
+
+// Find second non-used number within the range of findPairsByStep
+int findSecondFreeSpace(int pSteps, int pShift) {
+    if (pSteps == 1) {
+        return 2 + pShift;
+    } else if (pSteps == 0) {
+        return pShift;
+    } else {
+        double steps = (double)pSteps;
+        double result;
+        result = (2 * ceil(steps/2)) + (2 * floor(steps/2)) + 1;
+        return (int) result + pShift;
+    }
+}
+
+// Display how to use PCN
+void displayHowTo() {
     std::cout << "PCN - Partitioning Consecutive Numbers (written by Kai Renken, 2018)" << std::endl;
     std::cout << std::endl;
     std::cout << "Use 'PCN [Parameter n] [Parameter a] [Parameter b]'" << std::endl;
