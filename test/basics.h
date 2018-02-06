@@ -37,7 +37,7 @@ int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp) {
 int findFirstFreeSpace(int pSteps, int pShift) {
     double steps = (double) pSteps;
     double result;
-    result = (2 * ceil(steps/2)) + floor(steps/2);
+    result = (2 * ceil(steps / 2)) + floor(steps / 2);
     return (int) result + pShift;
 }
 
