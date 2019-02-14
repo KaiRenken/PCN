@@ -1,9 +1,9 @@
+#include "Matrix.h"
+#include "findPartitions.h"
+#include "basics.h"
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
-#include "findPartitions.h"
-#include "basics.h"
-#include "Matrix.h"
 
 int main(int argn, char *argv[]) {
 
@@ -28,7 +28,7 @@ int main(int argn, char *argv[]) {
     double n = (double) pN;
     double a = (double) pA;
     double b = (double) pB;
-    
+
     if ((n * (n + 1)) / 2 != ((a + b) / 2) * (b - a + 1)) {
 		displayHowTo();
 		return 0;
@@ -49,6 +49,6 @@ int main(int argn, char *argv[]) {
     }
 
     delete mat;
-    
+
     return 0;
 }
