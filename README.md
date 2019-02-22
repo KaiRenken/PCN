@@ -8,7 +8,7 @@ PCN partitiones natural numbers from 1 to n, which add up to the same sum as som
 
 - How to use
 
-PCN is tested to compile with the GCC and MinGW compilers. Just place all files from 'src' in one folder and compile the 'PCN.cpp'. Executable files for Windows and Linux can be found in 'build'.
+Just clone to a local directory and compile all files from 'sources'. Executable files for Windows and Linux can be found in 'build'.
 
 Run PCN in command line as follows:
 
@@ -16,8 +16,9 @@ Run PCN in command line as follows:
 
 Here, n, a and b as supposed to be natural numbers, such that the sum from 1 to n equals the sum from a to b. The output will be a matrix consisting of b-a+1 lines and n columns, such that the entries in the first line add up to a, the entries in the second line add up to a+1, and so on.
 
+Notice: PCN has been build using MinGW Version 5.3.0
 
 - Tests
 
 PCN has been tested using the Catch2 framework (see: 'https://github.com/catchorg/Catch2')
-You can run the tests by placing all files from 'test' in one folder and compile the 'test.cpp'.
+In 'tests' compile 'tests-main.cpp' only once, then compile one (ONLY ONE!) of the '.cpp'-files from 'tests' and all files from 'sources' (except 'PCN.cpp') and link all produced '.o' files (except 'PCN.o') to built a testing application.

@@ -1,2 +1,4 @@
-tests/test.o
-tests/test
+tests/*.o
+tests/*.exe
+sources/*.o
+sources/*.exe

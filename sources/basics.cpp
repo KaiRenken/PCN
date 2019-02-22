@@ -1,12 +1,12 @@
-#include "basics.h"
+#include "../headers/basics.h"
 #include <iostream>
 #include <math.h>
 #include <vector>
 
-// Find pairs of natural numbers with distance 'pStep' within the most narrow range
-int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp) {
-
-    if (pStep > pSteps) {
+int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp)
+{
+    if (pStep > pSteps)
+    {
 		return 0;
 	}
 
@@ -14,30 +14,33 @@ int findPairsByStep(int pStep, int pSteps, int pShift, bool pComp) {
     double steps = (double) pSteps;
     double result;
 
-    if (pStep % 2 == 1) {
+    if (pStep % 2 == 1)
+    {
         result = ceil(steps / 2) - ceil(step / 2);
     } else {
         result = (ceil(steps / 2) * 2) + floor(steps / 2) - (step / 2);
     }
 
-    if (pComp == 0) {
+    if (pComp == 0)
+    {
         return (int) result + pShift;
     } else {
         return (int) result + pStep + pShift;
     }
 }
 
-// Find first non-used number within the range of findPairsByStep
-int findFirstFreeSpace(int pSteps, int pShift) {
+int findFirstFreeSpace(int pSteps, int pShift)
+{
     double steps = (double) pSteps;
     double result;
     result = (2 * ceil(steps / 2)) + floor(steps / 2);
     return (int) result + pShift;
 }
 
-// Find second non-used number within the range of findPairsByStep
-int findSecondFreeSpace(int pSteps, int pShift) {
-    if (pSteps == 1) {
+int findSecondFreeSpace(int pSteps, int pShift)
+{
+    if (pSteps == 1)
+    {
         return 2 + pShift;
     } else if (pSteps == 0) {
         return pShift;
@@ -49,8 +52,8 @@ int findSecondFreeSpace(int pSteps, int pShift) {
     }
 }
 
-// Display how to use PCN
-void displayHowTo() {
+void displayHowTo()
+{
     std::cout << "PCN - Partitioning Consecutive Numbers (written by Kai Renken, 2018)" << std::endl;
     std::cout << std::endl;
     std::cout << "Type 'PCN [Parameter n] [Parameter a] [Parameter b]'," << std::endl;
